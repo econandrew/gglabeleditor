@@ -1,0 +1,94 @@
+.editable-plot-overlay {
+}
+
+.form-group.shiny-input-container {
+  float: right;
+}
+.geom_label.overlay {
+  width: 25px;
+  height: 15px;
+  cursor: pointer
+}
+
+.geom_label.overlay:hover {
+  border-left: dashed 1px red;
+  border-bottom: dashed 1px red;
+  opacity: 1.0;
+}
+
+.geom_label.overlay.ui-draggable-dragging {
+  background-color: red;
+  opacity: 0.5
+}
+
+.handle {
+  height: 3px;
+  width: 3px;
+  background: red;
+  opacity: 0;
+}
+
+.geom_label.overlay:hover > .handle {
+  opacity: 1;
+}
+
+.handle.bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0
+}
+
+.handle.center-left {
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.handle.top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.handle.top-center {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+.handle.top-right {
+  position: absolute;
+  top: 0;
+  right: 0
+}
+
+.handle.center-right {
+  position: absolute;
+  top: 50%;
+  right: 0
+}
+
+.handle.bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0
+}
+
+.handle.bottom-center {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+
+.handle.center-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+#button_vjust_bottom > i,
+#button_vjust_middle > i,
+#button_vjust_top > i
+{
+  transform: rotate(270deg);
+}

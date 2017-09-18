@@ -1,0 +1,12 @@
+Package: gglabeleditor
+Type: Package
+Title: Interactive editor for ggplot2 label positions
+Version: 0.1.0
+Authors@R: person("Andrew", "Whitby", email = "me@andrewwhitby.id.au",
+  role = c("aut", "cre"))
+Description: Provides a Shiny gadget for interactively editing label positions
+    created with geom_text or geom_label in ggplot2.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
