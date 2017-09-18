@@ -1,6 +1,5 @@
 #' @export
-gglabeleditor <- function(plot, width, height, mapping, edits_file = NULL, ...) {
-  DEBUG = FALSE
+gglabeleditor <- function(plot, width, height, mapping, edits_file = NULL, DEBUG = FALSE,...) {
   if (DEBUG) {
     options(shiny.trace = TRUE)
     viewer = shiny::browserViewer()

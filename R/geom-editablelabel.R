@@ -27,7 +27,7 @@ geom_label_editable <- function(mapping = NULL, data = NULL,
         merge_edits(d, edits, colnames(edits)[1])
       }
     } else {
-      edited_data <- merge_edits(data, edits, colnames(edit))
+      edited_data <- merge_edits(data, edits, colnames(edits)[1])
     }
   } else {
     edited_data <- data
