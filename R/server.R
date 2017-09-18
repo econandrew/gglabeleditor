@@ -1,5 +1,5 @@
 #' @import shiny
-server <- function(plot, width, height, mapping, edits_file,...) {
+server <- function(plot, width, height, mapping, edits_file, gglabeleditor_call, ...) {
   uncompute_aesthetics <- function(data) {
     #TODO worry about inherit.aes
     data <- makefirstcol(data, "key")
@@ -16,7 +16,7 @@ server <- function(plot, width, height, mapping, edits_file,...) {
   }
 
   if (!is.null(edits_file) && file.exists(edits_file)) {
-    load(edits_file)
+    edits <- readRDS(edits_file)$edits
   } else {
     edits <- data.frame()
   }
@@ -43,16 +43,16 @@ server <- function(plot, width, height, mapping, edits_file,...) {
     observeEvent(input$done, {
       aes_elements <- c(GeomText$required_aes, names(GeomText$default_aes))
 
-      if (!is.null(edits_file)) {
-        save(edits, file=edits_file)
-      }
-
       returnValue <- list(
         final = built_labels[,aes_elements],
         final_data = built_labels[,c("x","y","label")],
         final_params = built_labels[,!(colnames(built_labels) %in% c("x","y","label"))],
-        edits = edits
+        edits = edits,
+        call = gglabeleditor_call
       )
+      if (!is.null(edits_file)) {
+        saveRDS(returnValue, file=edits_file)
+      }
       stopApp(returnValue)
     })
   }

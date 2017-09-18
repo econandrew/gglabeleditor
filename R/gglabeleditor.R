@@ -1,5 +1,6 @@
 #' @export
 gglabeleditor <- function(plot, width, height, mapping, edits_file = NULL, DEBUG = FALSE,...) {
+  call = match.call()
   if (DEBUG) {
     options(shiny.trace = TRUE)
     viewer = shiny::browserViewer()
@@ -8,7 +9,7 @@ gglabeleditor <- function(plot, width, height, mapping, edits_file = NULL, DEBUG
     viewer = shiny::dialogViewer("Edit labels", width+80, height+150)
   }
   shiny::addResourcePath("assets", system.file("www", package="gglabeleditor"))
-  shiny::runGadget(shinyApp(ui(), server(plot, width, height, mapping, edits_file, ...)), viewer = viewer)
+  shiny::runGadget(shinyApp(ui(), server(plot, width, height, mapping, edits_file, gglabeleditor_call = call, ...)), viewer = viewer)
 }
 
 .onAttach <- function(libname, pkgname) {
